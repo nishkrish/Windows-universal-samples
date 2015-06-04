@@ -12,6 +12,7 @@
 using System;
 using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
+using FolderEnumeration;
 
 namespace SDKTemplate
 {
@@ -21,10 +22,10 @@ namespace SDKTemplate
 
         List<Scenario> scenarios = new List<Scenario>
         {
-            new Scenario() { Title = "Enumerate files and folders in the Pictures library",        ClassType = typeof(Scenario1) },
-            new Scenario() { Title = "Enumerate files in the Pictures library, by groups",         ClassType = typeof(Scenario2) },
-            new Scenario() { Title = "Enumerate files in the Pictures library with prefetch APIs", ClassType = typeof(Scenario3) },
-            new Scenario() { Title = "Enumerate files in a folder and display availability",       ClassType = typeof(Scenario4) },
+            new Scenario() { Title = "Enumerate files and folders in the Pictures library",        ClassType = typeof(FolderEnumeration.Scenario1) },
+            new Scenario() { Title = "Enumerate files in the Pictures library, by groups",         ClassType = typeof(FolderEnumeration.Scenario2) },
+            new Scenario() { Title = "Enumerate files in the Pictures library with prefetch APIs", ClassType = typeof(FolderEnumeration.Scenario3) },
+            new Scenario() { Title = "Enumerate files in a folder and display availability",       ClassType = typeof(FolderEnumeration.Scenario4) },
         };
     }
 

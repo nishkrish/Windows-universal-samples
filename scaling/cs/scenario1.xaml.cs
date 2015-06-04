@@ -8,6 +8,8 @@
 //
 //*********************************************************
 
+using SDKTemplate;
+
 using System;
 using System.Collections.Generic;
 using Windows.Graphics.Display;
@@ -16,10 +18,29 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Media.Imaging;
 
-namespace SDKTemplate
+namespace Scaling
 {
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
     public sealed partial class Scenario1 : Page
     {
+        private static readonly Dictionary<ResolutionScale, string> MinDPI = new Dictionary<ResolutionScale, string>
+        {
+            { ResolutionScale.Invalid,         "Unknown" },
+            { ResolutionScale.Scale100Percent, "No minimum DPI for this scale" },
+            { ResolutionScale.Scale140Percent, "174 DPI" },
+            { ResolutionScale.Scale180Percent, "240 DPI" },
+        };
+
+        private static readonly Dictionary<ResolutionScale, string> MinResolution = new Dictionary<ResolutionScale, string>
+        {
+            { ResolutionScale.Invalid,         "Unknown" },
+            { ResolutionScale.Scale100Percent, "1024x768 (min resolution needed to run apps)" },
+            { ResolutionScale.Scale140Percent, "1440x1080" },
+            { ResolutionScale.Scale180Percent, "1920x1440" },
+        };
+
         private const String imageBase = "http://www.contoso.com/imageScale{0}.png";
 
         public Scenario1()
@@ -32,9 +53,12 @@ namespace SDKTemplate
         private void ResetOutput()
         {
             DisplayInformation displayInformation = DisplayInformation.GetForCurrentView();
-            String scaleValue = (displayInformation.RawPixelsPerViewPixel * 100.0).ToString("F0");
+            ResolutionScale scale = displayInformation.ResolutionScale;
+            String scaleValue = ((int)scale).ToString();
             ScalingText.Text = scaleValue + "%";
             ManualLoadURL.Text = String.Format(imageBase, scaleValue);
+            MinDPIText.Text = MinDPI[scale];
+            MinScreenResolutionText.Text = MinResolution[scale];
             LogicalDPIText.Text = displayInformation.LogicalDpi.ToString() + " DPI";
         }
 

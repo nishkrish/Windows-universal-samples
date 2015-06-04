@@ -12,17 +12,17 @@ using namespace Windows::Storage;
 
 Platform::Array<Scenario>^ MainPage::scenariosInner = ref new Platform::Array<Scenario>
 {
-    { "Creating a file",                                      "SDKTemplate.Scenario1" },
-    { "Getting a file's parent folder",                       "SDKTemplate.Scenario2" },
-    { "Writing and reading text in a file",                   "SDKTemplate.Scenario3" },
-    { "Writing and reading bytes in a file",                  "SDKTemplate.Scenario4" },
-    { "Writing and reading using a stream",                   "SDKTemplate.Scenario5" },
-    { "Displaying file properties",                           "SDKTemplate.Scenario6" },
-    { "Persisting access to a storage item for future use",   "SDKTemplate.Scenario7" },
-    { "Copying a file",                                       "SDKTemplate.Scenario8" },
-    { "Comparing two files to see if they are the same file", "SDKTemplate.Scenario9" },
-    { "Deleting a file",                                      "SDKTemplate.Scenario10" },
-    { "Attempting to get a file with no error on failure",    "SDKTemplate.Scenario11" },
+    { "Creating a file",                                      "FileAccess.Scenario1" },
+    { "Getting a file's parent folder",                       "FileAccess.Scenario2" },
+    { "Writing and reading text in a file",                   "FileAccess.Scenario3" },
+    { "Writing and reading bytes in a file",                  "FileAccess.Scenario4" },
+    { "Writing and reading using a stream",                   "FileAccess.Scenario5" },
+    { "Displaying file properties",                           "FileAccess.Scenario6" },
+    { "Persisting access to a storage item for future use",   "FileAccess.Scenario7" },
+    { "Copying a file",                                       "FileAccess.Scenario8" },
+    { "Comparing two files to see if they are the same file", "FileAccess.Scenario9" },
+    { "Deleting a file",                                      "FileAccess.Scenario10" },
+    { "Attempting to get a file with no error on failure",    "FileAccess.Scenario11" },
 };
 
 void MainPage::Initialize()

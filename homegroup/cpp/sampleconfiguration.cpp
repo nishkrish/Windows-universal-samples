@@ -8,8 +8,8 @@ using namespace SDKTemplate;
 
 Platform::Array<Scenario>^ MainPage::scenariosInner = ref new Platform::Array<Scenario>
 {
-    { "Open the file picker at HomeGroup",    "SDKTemplate.HomeGroupPicker" },
-    { "Search HomeGroup",                     "SDKTemplate.SearchHomeGroup" },
-    { "Stream video from Homegroup",          "SDKTemplate.HomeGroupVideoStream" },
-    { "Advanced search",                      "SDKTemplate.HomeGroupAdvancedSearch" }
+    { "Open the file picker at HomeGroup",    "HomeGroup.HomeGroupPicker" },
+    { "Search HomeGroup",                     "HomeGroup.SearchHomeGroup" },
+    { "Stream video from Homegroup",          "HomeGroup.HomeGroupVideoStream" },
+    { "Advanced search",                      "HomeGroup.HomeGroupAdvancedSearch" }
 };

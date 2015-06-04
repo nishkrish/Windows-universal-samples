@@ -8,6 +8,8 @@
 //
 //*********************************************************
 
+using SDKTemplate;
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,13 +21,14 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-namespace SDKTemplate
+namespace FolderEnumeration
 {
     public sealed partial class Scenario4 : Page
     {
         public Scenario4()
         {
             this.InitializeComponent();
+            GetFilesButton.Click += new RoutedEventHandler(GetFilesButton_Click);
         }
 
         private async void GetFilesButton_Click(object sender, RoutedEventArgs e)
@@ -51,10 +54,10 @@ namespace SDKTemplate
                     // Create an entry in the list for the item.
                     var line = file.Name;
 
-                    // Show the item's provider (This PC, OneDrive, Network, or Application Content).
+                    // Show the item's provider (This PC, SkyDrive, Network, or Application Content).
                     line += ": On " + file.Provider.DisplayName;
 
-                    // Show if the item is available (OneDrive items are usually available when
+                    // Show if the item is available (SkyDrive items are usually available when
                     // online or when they are marked for "always available offline").
                     line += " (";
                     if (file.IsAvailable)

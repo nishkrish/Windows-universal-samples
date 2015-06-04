@@ -8,6 +8,8 @@
 //
 //*********************************************************
 
+using SDKTemplate;
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,13 +21,14 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-namespace SDKTemplate
+namespace FolderEnumeration
 {
     public sealed partial class Scenario3 : Page
     {
         public Scenario3()
         {
             this.InitializeComponent();
+            GetFilesButton.Click += new RoutedEventHandler(GetFilesButton_Click);
         }
 
         const string CopyrightProperty = "System.Copyright";

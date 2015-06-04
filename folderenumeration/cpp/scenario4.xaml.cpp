@@ -17,6 +17,7 @@
 #include "Scenario4.xaml.h"
 
 using namespace SDKTemplate;
+using namespace FolderEnumeration;
 
 using namespace concurrency;
 using namespace Platform;
@@ -34,6 +35,7 @@ using namespace Windows::UI::Xaml::Navigation;
 Scenario4::Scenario4()
 {
     InitializeComponent();
+    GetFilesButton->Click += ref new RoutedEventHandler(this, &Scenario4::GetFilesButton_Click);
 }
 
 void Scenario4::GetFilesButton_Click(Object^ sender, RoutedEventArgs^ e)

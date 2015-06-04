@@ -8,12 +8,13 @@
 //
 //*********************************************************
 
+using SDKTemplate;
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-namespace SDKTemplate
+namespace HomeGroup
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.

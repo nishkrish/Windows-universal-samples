@@ -17,6 +17,7 @@
 #include "Scenario1.xaml.h"
 
 using namespace SDKTemplate;
+using namespace ContextMenu;
 
 using namespace concurrency;
 using namespace Windows::Foundation;
@@ -31,6 +32,7 @@ Scenario1::Scenario1()
 {
     InitializeComponent();
     rootPage = MainPage::Current;
+    AttachmentImage->RightTapped += ref new RightTappedEventHandler(this, &Scenario1::AttachmentImage_RightTapped);
 }
 
 Rect Scenario1::GetElementRect(FrameworkElement^ element)

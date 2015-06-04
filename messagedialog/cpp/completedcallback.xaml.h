@@ -18,7 +18,7 @@
 #include "CompletedCallback.g.h"
 #include "MainPage.xaml.h"
 
-namespace SDKTemplate
+namespace MessageDialogSample
 {
     [Windows::Foundation::Metadata::WebHostHidden]
     public ref class CompletedCallback sealed
@@ -29,7 +29,7 @@ namespace SDKTemplate
     protected:
         virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
     private:
-        MainPage^ rootPage;
+        SDKTemplate::MainPage^ rootPage;
         void CompletedCallbackButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
     };
 }

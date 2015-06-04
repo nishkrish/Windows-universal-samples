@@ -5,6 +5,7 @@
 #include "SampleConfiguration.h"
 
 using namespace SDKTemplate;
+using namespace SemanticTextQuery;
 using namespace concurrency;
 using namespace Platform;
 using namespace Windows::Data::Text;
@@ -16,12 +17,12 @@ using namespace Windows::UI::Xaml::Documents;
 
 Platform::Array<Scenario>^ MainPage::scenariosInner = ref new Platform::Array<Scenario>
 {
-    { "Find Scenario",                            "SDKTemplate.Scenario1" }, 
-    { "FindInProperty Scenario",                  "SDKTemplate.Scenario2" },
-    { "GetMatchingPropertiesWithRanges Scenario", "SDKTemplate.Scenario3" }
+    { "Find Scenario",                            "SemanticTextQuery.Scenario1" }, 
+    { "FindInProperty Scenario",                  "SemanticTextQuery.Scenario2" },
+    { "GetMatchingPropertiesWithRanges Scenario", "SemanticTextQuery.Scenario3" }
 };
 
-void ::SDKTemplate::HighlightRanges(TextBlock^ tb,  String^ TextContent, IVectorView<TextSegment>^ ranges)
+void ::SemanticTextQuery::HighlightRanges(TextBlock^ tb,  String^ TextContent, IVectorView<TextSegment>^ ranges)
 {
     int currentPosition = 0;
     const wchar_t* StringData = TextContent->Data();

@@ -14,12 +14,13 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Windows.Foundation;
 using Windows.Data.Text;
+using SDKTemplate;
 using System;
 using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace SDKTemplate
+namespace UnicodeSample
 {
     public sealed partial class Scenario1_FindId : Page
     {

@@ -1,18 +1,10 @@
-//*********************************************************
-//
-// Copyright (c) Microsoft. All rights reserved.
-// This code is licensed under the MIT License (MIT).
-// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
-// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
-// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
-// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
-//
-//*********************************************************
+﻿// Copyright (c) Microsoft. All rights reserved.
 
 #include "pch.h"
 #include "Scenario5_WriteAndReadAFileUsingAStream.xaml.h"
 
 using namespace SDKTemplate;
+using namespace FileAccess;
 
 using namespace concurrency;
 using namespace Platform;
@@ -43,14 +35,13 @@ void Scenario5::WriteToStreamButton_Click(Object^ sender, RoutedEventArgs^ e)
                 try
                 {
                     StorageStreamTransaction^ transaction = task.get();
-                    auto dataWriter = ref new DataWriter(transaction->Stream);
+                    DataWriter^ dataWriter = ref new DataWriter(transaction->Stream);
                     dataWriter->WriteString(userContent);
                     create_task(dataWriter->StoreAsync()).then([this, file, dataWriter, transaction, userContent](unsigned int bytesWritten)
                     {
                         transaction->Stream->Size = bytesWritten; // reset stream size to override the file
-                        create_task(transaction->CommitAsync()).then([this, file, transaction, userContent]()
+                        create_task(transaction->CommitAsync()).then([this, file, userContent]()
                         {
-                            delete transaction; // As a best practice, explicitly close the transaction resource as soon as it is no longer needed.
                             rootPage->NotifyUser("The following text was written to '" + file->Name + "' using a stream:\n" + userContent, NotifyType::StatusMessage);
                         });
                     });
@@ -85,7 +76,7 @@ void Scenario5::ReadFromStreamButton_Click(Object^ sender, RoutedEventArgs^ e)
                 UINT64 const size = readStream->Size;
                 if (size <= MAXUINT32)
                 {
-                    auto dataReader = ref new DataReader(readStream);
+                    DataReader^ dataReader = ref new DataReader(readStream);
                     create_task(dataReader->LoadAsync(static_cast<UINT32>(size))).then([this, file, dataReader](unsigned int numBytesLoaded)
                     {
                         String^ fileContent = dataReader->ReadString(numBytesLoaded);

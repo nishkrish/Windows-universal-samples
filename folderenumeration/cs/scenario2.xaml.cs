@@ -8,6 +8,8 @@
 //
 //*********************************************************
 
+using SDKTemplate;
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,19 +20,22 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-namespace SDKTemplate
+namespace FolderEnumeration
 {
     public sealed partial class Scenario2 : Page
     {
         public Scenario2()
         {
             this.InitializeComponent();
+            GroupByMonthButton.Click += new RoutedEventHandler(GroupByMonth_Click);
+            GroupByRatingButton.Click += new RoutedEventHandler(GroupByRating_Click);
+            GroupByTagButton.Click += new RoutedEventHandler(GroupByTag_Click);
         }
 
         /// <summary>
         /// list all the files and folders in Pictures library by month
         /// </summary>
-        private async void GroupByMonthButton_Click(object sender, RoutedEventArgs e)
+        async void GroupByMonth_Click(object sender, RoutedEventArgs e)
         {
             await GroupByHelperAsync(new QueryOptions(CommonFolderQuery.GroupByMonth));
         }
@@ -38,7 +43,7 @@ namespace SDKTemplate
         /// <summary>
         /// list all the files and folders in Pictures library by rating
         /// </summary>
-        private async void GroupByRatingButton_Click(object sender, RoutedEventArgs e)
+        async void GroupByRating_Click(object sender, RoutedEventArgs e)
         {
             await GroupByHelperAsync(new QueryOptions(CommonFolderQuery.GroupByRating));
         }
@@ -46,7 +51,7 @@ namespace SDKTemplate
         /// <summary>
         /// list all the files and folders in Pictures library by tag
         /// </summary>
-        private async void GroupByTagButton_Click(object sender, RoutedEventArgs e)
+        async void GroupByTag_Click(object sender, RoutedEventArgs e)
         {
             await GroupByHelperAsync(new QueryOptions(CommonFolderQuery.GroupByTag));
         }

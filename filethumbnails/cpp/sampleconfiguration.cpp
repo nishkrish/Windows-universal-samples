@@ -16,12 +16,12 @@ using namespace Windows::UI::Xaml::Media::Imaging;
 
 Array<Scenario>^ MainPage::scenariosInner = ref new Array<Scenario>
 {
-    { "Display a thumbnail for a picture",    "SDKTemplate.Scenario1" },
-    { "Display album art for a song",         "SDKTemplate.Scenario2" },
-    { "Display an icon for a document",       "SDKTemplate.Scenario3" },
-    { "Display a thumbnail for a folder",     "SDKTemplate.Scenario4" },
-    { "Display a thumbnail for a file group", "SDKTemplate.Scenario5" },
-    { "Display a scaled image",               "SDKTemplate.Scenario6" },
+    { "Display a thumbnail for a picture",    "FileThumbnails.Scenario1" },
+    { "Display album art for a song",         "FileThumbnails.Scenario2" },
+    { "Display an icon for a document",       "FileThumbnails.Scenario3" },
+    { "Display a thumbnail for a folder",     "FileThumbnails.Scenario4" },
+    { "Display a thumbnail for a file group", "FileThumbnails.Scenario5" },
+    { "Display a scaled image",               "FileThumbnails.Scenario6" },
 };
 
 String^ Errors::NoExifThumbnail   = "No result (no EXIF thumbnail or cached thumbnail available for fast retrieval)";

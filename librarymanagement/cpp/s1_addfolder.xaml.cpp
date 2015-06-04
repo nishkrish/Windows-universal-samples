@@ -1,11 +1,6 @@
 //*********************************************************
 //
 // Copyright (c) Microsoft. All rights reserved.
-// This code is licensed under the MIT License (MIT).
-// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
-// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
-// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
-// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
 //
 //*********************************************************
 
@@ -19,6 +14,7 @@
 #include "MainPage.xaml.h"
 
 using namespace SDKTemplate;
+using namespace LibraryManagement;
 
 using namespace concurrency;
 using namespace Windows::Storage;
@@ -36,7 +32,7 @@ Scenario1::Scenario1()
 /// </summary>
 /// <param name="sender"></param>
 /// <param name="e"></param>
-void Scenario1::AddFolderButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void LibraryManagement::Scenario1::AddFolderButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
     create_task(StorageLibrary::GetLibraryAsync(KnownLibraryId::Pictures)).then([](StorageLibrary^ picturesLibrary)
     {

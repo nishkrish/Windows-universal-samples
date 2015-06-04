@@ -19,7 +19,7 @@
 #include "Scenario2.g.h"
 #include "MainPage.xaml.h"
 
-namespace SDKTemplate
+namespace Scaling
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -40,11 +40,15 @@ namespace SDKTemplate
         double PxFromPt(double pt);
 
         Platform::String^ StringFromDouble(double);
-        void OutputSettings(double rawPixelsPerViewPixel, Windows::UI::Xaml::FrameworkElement^ rectangle, Windows::UI::Xaml::Controls::TextBlock^ relativePxText,
+        void SetOverrideRectSize(double sizeInPhysicalPx, double scaleFactor);
+        void SetOverrideTextFont(double size, Windows::UI::Xaml::Media::FontFamily^ fontFamily);
+        void OutputSettings(double scaleFactor, Windows::UI::Xaml::FrameworkElement^ rectangle, Windows::UI::Xaml::Controls::TextBlock^ relativePxText,
                             Windows::UI::Xaml::Controls::TextBlock^ physicalPxText, Windows::UI::Xaml::Controls::TextBlock^ fontTextBlock);
         void ResetOutput();
         void DisplayProperties_DpiChanged(Windows::Graphics::Display::DisplayInformation^ sender, Platform::Object^ args);
 
+        Windows::UI::Xaml::Media::FontFamily^ defaultFontFamily;
+        Windows::UI::Xaml::Media::FontFamily^ overrideFontFamily;
         Windows::Foundation::EventRegistrationToken token;
     };
 }
