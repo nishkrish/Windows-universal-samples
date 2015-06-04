@@ -1,11 +1,6 @@
 //*********************************************************
 //
 // Copyright (c) Microsoft. All rights reserved.
-// This code is licensed under the MIT License (MIT).
-// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
-// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
-// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
-// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
 //
 //*********************************************************
 
@@ -20,6 +15,7 @@
 #include "Helpers.h"
 
 using namespace SDKTemplate;
+using namespace Indexer;
 
 using namespace concurrency;
 using namespace Platform;
@@ -35,14 +31,14 @@ S6_DeleteWithAppContent::S6_DeleteWithAppContent()
     InitializeRevisionNumber();
 }
 
-void S6_DeleteWithAppContent::AddToIndex_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void Indexer::S6_DeleteWithAppContent::AddToIndex_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
     return AddAppContentFilesToIndexedFolder();
 }
 
 // This function deletes a single appcontent-ms file, "sample1.appcontent-ms". Upon deletion, the indexer is notified
 // and the content indexed from this file is removed from the index.
-void S6_DeleteWithAppContent::DeleteSingleItem_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void Indexer::S6_DeleteWithAppContent::DeleteSingleItem_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
     auto localFolder = Windows::Storage::ApplicationData::Current->LocalFolder;
     auto outputStrings = ref new Vector<String^>();
@@ -81,7 +77,7 @@ void S6_DeleteWithAppContent::DeleteSingleItem_Click(Platform::Object^ sender, W
 
 // This function deletes all appcontent-ms files in the "LocalState\Indexed" folder. Upon deletion, the indexer is notified and
 // the content indexed from these files is removed from the index.
-void S6_DeleteWithAppContent::DeleteAllItems_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void Indexer::S6_DeleteWithAppContent::DeleteAllItems_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
     auto localFolder = Windows::Storage::ApplicationData::Current->LocalFolder;
     auto outputStrings = ref new Vector<String^>();

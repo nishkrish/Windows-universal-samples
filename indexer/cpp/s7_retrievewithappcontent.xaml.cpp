@@ -1,11 +1,6 @@
 //*********************************************************
 //
 // Copyright (c) Microsoft. All rights reserved.
-// This code is licensed under the MIT License (MIT).
-// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
-// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
-// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
-// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
 //
 //*********************************************************
 
@@ -20,6 +15,7 @@
 #include "Helpers.h"
 
 using namespace SDKTemplate;
+using namespace Indexer;
 
 using namespace concurrency;
 using namespace Platform;
@@ -35,7 +31,7 @@ S7_RetrieveWithAppContent::S7_RetrieveWithAppContent()
     InitializeRevisionNumber();
 }
 
-void S7_RetrieveWithAppContent::AddToIndex_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void Indexer::S7_RetrieveWithAppContent::AddToIndex_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
     return AddAppContentFilesToIndexedFolder();
 }
@@ -75,7 +71,7 @@ void RetrieveAppContentHelper(std::function<Windows::Storage::Search::StorageFil
 }
 
 // This function retrieves all items added to the index through the app's appcontent-ms files
-void S7_RetrieveWithAppContent::RetrieveAllItems_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void Indexer::S7_RetrieveWithAppContent::RetrieveAllItems_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
     return RetrieveAppContentHelper([](Windows::Storage::StorageFolder^ indexedFolder)
         {
@@ -86,7 +82,7 @@ void S7_RetrieveWithAppContent::RetrieveAllItems_Click(Platform::Object^ sender,
 
 // This function retrieves all items added to the index through the app's appcontent-ms files which
 // have an ItemNameDisplay property containing "Sample 1"
-void S7_RetrieveWithAppContent::RetrieveMatchedItems_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void Indexer::S7_RetrieveWithAppContent::RetrieveMatchedItems_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
     return RetrieveAppContentHelper([](Windows::Storage::StorageFolder^ indexedFolder)
         {

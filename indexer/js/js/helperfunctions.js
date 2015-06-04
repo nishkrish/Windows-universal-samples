@@ -17,14 +17,14 @@
     // with generic Key, Name, Keywords, and Comment properties.
     function _addItemsToIndex() {
         var indexer = Windows.Storage.Search.ContentIndexer.getIndexer(), // Retrieve an instance of the ContentIndexer
+            content = new Windows.Storage.Search.IndexableContent(),
             numberOfItemsToIndex = 3;
         var promiseArray = [];
         for (var i = 0; i < numberOfItemsToIndex; i++) {
             var itemKeyValue = "SampleKey" + i.toString(),
                 itemNameValue = "Sample Item Name " + i.toString(),
                 itemKeywordsValue = "Sample keyword " + i.toString(),
-                itemCommentValue = "Sample comment " + i.toString(),
-                content = new Windows.Storage.Search.IndexableContent();
+                itemCommentValue = "Sample comment " + i.toString();
             content.properties.insert(Windows.Storage.SystemProperties.itemNameDisplay, itemNameValue);
             content.properties.insert(Windows.Storage.SystemProperties.keywords, itemKeywordsValue);
             content.properties.insert(Windows.Storage.SystemProperties.comment, itemCommentValue);

@@ -12,6 +12,7 @@
 using System;
 using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
+using FileSearch;
 
 namespace SDKTemplate
 {
@@ -21,7 +22,7 @@ namespace SDKTemplate
 
         List<Scenario> scenarios = new List<Scenario>
         {
-            new Scenario() { Title = "Obtain all files that match a search query", ClassType = typeof(Scenario1) },
+            new Scenario() { Title = "Obtain all files that match a search query", ClassType = typeof(FileSearch.Scenario1) },
         };
     }
 

@@ -4,6 +4,7 @@
 #include "HomeGroupPickerScenario.xaml.h"
 
 using namespace SDKTemplate;
+using namespace HomeGroup;
 
 using namespace concurrency;
 using namespace Platform;

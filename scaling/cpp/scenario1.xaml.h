@@ -19,8 +19,11 @@
 #include "Scenario1.g.h"
 #include "MainPage.xaml.h"
 
-namespace SDKTemplate
+namespace Scaling
 {
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
     [Windows::Foundation::Metadata::WebHostHidden]
     public ref class Scenario1 sealed
     {
@@ -34,6 +37,8 @@ namespace SDKTemplate
     private:
         Windows::Foundation::EventRegistrationToken token;
 
+        Platform::String^ GetMinDPI();
+        Platform::String^ GetMinResolution();
         void ResetOutput();
         void DisplayProperties_DpiChanged(Windows::Graphics::Display::DisplayInformation^ sender, Platform::Object^ args);
     };

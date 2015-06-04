@@ -8,6 +8,8 @@
 //
 //*********************************************************
 
+using SDKTemplate;
+
 using System;
 using Windows.Graphics.Display;
 using Windows.UI.Text;
@@ -16,16 +18,20 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace SDKTemplate
+namespace Scaling
 {
     public sealed partial class Scenario2 : Page
     {
+        private static FontFamily defaultFontFamily = new FontFamily("Segoe UI");
+        private static FontFamily overrideFontFamily = new FontFamily("Segoe Script");
+
         public Scenario2()
         {
             InitializeComponent();
             DisplayInformation displayInformation = DisplayInformation.GetForCurrentView();
             displayInformation.DpiChanged += DisplayProperties_DpiChanged;
             DefaultLayoutText.FontSize = PxFromPt(20);  // xaml fontsize is in pixels.
+            DefaultLayoutText.FontFamily = defaultFontFamily;
         }
 
         // Helpers to convert between points and pixels.
@@ -39,41 +45,74 @@ namespace SDKTemplate
             return pt * 96 / 72;
         }
 
-        void OutputSettings(double rawPixelsPerViewPixel, FrameworkElement rectangle, TextBlock viewPxText, TextBlock rawPxText, TextBlock fontTextBlock)
+        void SetOverrideRectSize(double sizeInPhysicalPx, double scaleFactor)
         {
-            // Get the size of the rectangle in view pixels and calulate the size in raw pixels.
-            double sizeInViewPx = rectangle.Width;
-            double sizeInRawPx = sizeInViewPx * rawPixelsPerViewPixel;
+            // Set the size of OverrideLayoutRect based on the desired size in physical pixels and the scale factor.
+            // The code here is to demonstrate how to override default scaling behavior to keep the physical pixel size of a control.
+            double sizeInRelativePx = sizeInPhysicalPx / scaleFactor;
+            OverrideLayoutRect.Width = sizeInRelativePx;
+            OverrideLayoutRect.Height = sizeInRelativePx;
+        }
 
-            viewPxText.Text = sizeInViewPx.ToString("F1") + " view px";
-            rawPxText.Text = sizeInRawPx.ToString("F0") + " raw px";
+        void SetOverrideTextFont(double size, FontFamily fontFamily)
+        {
+            OverrideLayoutText.FontSize = PxFromPt(size);  // xaml fontsize is in pixels.
+            OverrideLayoutText.FontFamily = fontFamily;
+        }
+
+        void OutputSettings(double scaleFactor, FrameworkElement rectangle, TextBlock relativePxText, TextBlock physicalPxText, TextBlock fontTextBlock)
+        {
+            // Get the size of the rectangle in relative pixels and calulate the size in physical pixels.
+            double sizeInRelativePx = rectangle.Width;
+            double sizeInPhysicalPx = sizeInRelativePx * scaleFactor;
+
+            relativePxText.Text = sizeInRelativePx.ToString("F1") + " relative px";
+            physicalPxText.Text = sizeInPhysicalPx.ToString("F0") + " physical px";
 
             double fontSize = PtFromPx(fontTextBlock.FontSize);
-            fontTextBlock.Text = fontSize.ToString("F0") + "pt";
+            fontTextBlock.Text = fontSize.ToString("F0") + "pt " + fontTextBlock.FontFamily.Source;
         }
 
         void ResetOutput()
         {
             ResolutionTextBlock.Text = Window.Current.Bounds.Width.ToString("F1") + "x" + Window.Current.Bounds.Height.ToString("F1");
 
+            double scaleFactor;
+            double fontSize;
+            FontFamily fontFamily;
             DisplayInformation displayInformation = DisplayInformation.GetForCurrentView();
-            double rawPixelsPerViewPixel = displayInformation.RawPixelsPerViewPixel;
+            switch (displayInformation.ResolutionScale)
+            {
+                case ResolutionScale.Invalid:
+                case ResolutionScale.Scale100Percent:
+                default:
+                    scaleFactor = 1.0;
+                    fontSize = 20;
+                    fontFamily = defaultFontFamily;
+                    break;
 
-            // Set the override rectangle size and override text font size by taking our desired
-            // size in raw pixels and converting it to view pixels.
-            const double rectSizeInRawPx = 100;
-            double rectSizeInViewPx = rectSizeInRawPx / rawPixelsPerViewPixel;
-            OverrideLayoutRect.Width = rectSizeInViewPx;
-            OverrideLayoutRect.Height = rectSizeInViewPx;
+                case ResolutionScale.Scale140Percent:
+                    scaleFactor = 1.4;
+                    fontSize = 11;
+                    fontFamily = overrideFontFamily;
+                    break;
 
-            double fontSizeInRawPx = PxFromPt(20);
-            double fontSizeInViewPx = fontSizeInRawPx / rawPixelsPerViewPixel;
-            OverrideLayoutText.FontSize = fontSizeInViewPx;
+                case ResolutionScale.Scale180Percent:
+                    scaleFactor = 1.8;
+                    fontSize = 9;
+                    fontFamily = overrideFontFamily;
+                    break;
+            }
+
+            // Set the override rectangle size and override text font.
+            const double rectSizeInPhysicalPx = 100;
+            SetOverrideRectSize(rectSizeInPhysicalPx, scaleFactor);
+            SetOverrideTextFont(fontSize, fontFamily);
 
             // Output settings for controls with default scaling behavior.
-            OutputSettings(rawPixelsPerViewPixel, DefaultLayoutRect, DefaultRelativePx, DefaultPhysicalPx, DefaultLayoutText);
+            OutputSettings(scaleFactor, DefaultLayoutRect, DefaultRelativePx, DefaultPhysicalPx, DefaultLayoutText);
             // Output settings for override controls.
-            OutputSettings(rawPixelsPerViewPixel, OverrideLayoutRect, OverrideRelativePx, OverridePhysicalPx, OverrideLayoutText);
+            OutputSettings(scaleFactor, OverrideLayoutRect, OverrideRelativePx, OverridePhysicalPx, OverrideLayoutText);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

@@ -15,6 +15,7 @@ using Windows.Data.Text;
 using Windows.UI.Text;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Documents;
+using SemanticTextQuery;
 
 namespace SDKTemplate
 {

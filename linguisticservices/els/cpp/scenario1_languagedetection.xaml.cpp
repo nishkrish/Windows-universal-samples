@@ -4,6 +4,7 @@
 #include "Scenario1_LanguageDetection.xaml.h"
 #include "elsutil.h"
 
+using namespace ELS;
 using namespace SDKTemplate;
 
 using namespace Platform;
@@ -42,7 +43,7 @@ void Scenario1_LanguageDetection::Go_Click(Platform::Object^ sender, Windows::UI
     if (b != nullptr)
     {
         auto input = TextInput->Text;
-        auto output = ELS::RecognizeTextLanguages(input->Data());
+        auto output = RecognizeTextLanguages(input->Data());
         TextOutput->Text = ref new Platform::String(output.c_str());
     }
 }

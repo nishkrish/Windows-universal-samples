@@ -1,7 +1,6 @@
 ﻿//*********************************************************
 //
 // Copyright (c) Microsoft. All rights reserved.
-// This code is licensed under the MIT License (MIT).
 // THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
 // ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
 // IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
@@ -9,6 +8,7 @@
 //
 //*********************************************************
 
+using SDKTemplate;
 using System;
 using Windows.Foundation;
 using Windows.UI.Input;
@@ -18,7 +18,7 @@ using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Input;
 using Windows.System.UserProfile;
 
-namespace SDKTemplate
+namespace Personalization
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.

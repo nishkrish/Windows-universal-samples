@@ -12,7 +12,7 @@
 #pragma once
 #include "Scenario1.g.h"
 
-namespace SDKTemplate
+namespace MediaTransportControls
 {
     /// <summary>
     /// Page for scenario 1 of this sample.
@@ -48,7 +48,7 @@ namespace SDKTemplate
         void SetNewMediaItem(int playlistIndex);
 
     private:
-        MainPage^ rootPage;
+        SDKTemplate::MainPage^ rootPage;
 
         bool isInitialized;
 

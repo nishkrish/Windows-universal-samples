@@ -12,6 +12,7 @@
 using System;
 using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
+using MessageDialogSample;
 
 namespace SDKTemplate
 {
@@ -21,10 +22,10 @@ namespace SDKTemplate
 
         List<Scenario> scenarios = new List<Scenario>
         {
-            new Scenario() { Title = "Use custom commands", ClassType = typeof(CustomCommand) },
-            new Scenario() { Title = "Use default close command", ClassType = typeof(DefaultCloseCommand) },
-            new Scenario() { Title = "Use completed callback", ClassType = typeof(CompletedCallback) },
-            new Scenario() { Title = "Use cancel command", ClassType = typeof(CancelCommand) }
+            new Scenario() { Title = "Use custom commands", ClassType = typeof(MessageDialogSample.CustomCommand) },
+            new Scenario() { Title = "Use default close command", ClassType = typeof(MessageDialogSample.DefaultCloseCommand) },
+            new Scenario() { Title = "Use completed callback", ClassType = typeof(MessageDialogSample.CompletedCallback) },
+            new Scenario() { Title = "Use cancel command", ClassType = typeof(MessageDialogSample.CancelCommand) }
         };
     }
 

@@ -17,6 +17,7 @@
 #include "Scenario2.xaml.h"
 
 using namespace SDKTemplate;
+using namespace Scaling;
 
 using namespace Platform;
 using namespace Windows::Foundation;
@@ -27,6 +28,9 @@ using namespace Windows::UI::Xaml::Controls;
 using namespace Windows::UI::Xaml::Media;
 using namespace Windows::UI::Xaml::Navigation;
 
+// TODO: Remove usages of the deprecated ResolutionScale and remove this pragma (bug MSFT:1791248).
+#pragma warning(disable: 4973)
+
 Scenario2::Scenario2()
 {
     InitializeComponent();
@@ -34,7 +38,11 @@ Scenario2::Scenario2()
     DisplayInformation^ displayInformation = DisplayInformation::GetForCurrentView();
     token = (displayInformation->DpiChanged += ref new TypedEventHandler<DisplayInformation^, Platform::Object^>(this, &Scenario2::DisplayProperties_DpiChanged));
 
+    defaultFontFamily = ref new Windows::UI::Xaml::Media::FontFamily("Segoe UI");
+    overrideFontFamily = ref new Windows::UI::Xaml::Media::FontFamily("Segoe Script");
+
     DefaultLayoutText->FontSize = PxFromPt(20);  // xaml fontsize is in pixels.
+    DefaultLayoutText->FontFamily = defaultFontFamily;
 }
 
 double Scenario2::PtFromPx(double pixel)
@@ -47,47 +55,80 @@ double Scenario2::PxFromPt(double pt)
     return pt * 96 / 72;
 }
 
+void Scenario2::SetOverrideRectSize(double sizeInPhysicalPx, double scaleFactor)
+{
+    // Set the size of OverrideLayoutRect based on the desired size in physical pixels and the scale factor.
+    // The code here is to demonstrate how to override default scaling behavior to keep the physical pixel size of a control.
+    double sizeInRelativePx = sizeInPhysicalPx / scaleFactor;
+    OverrideLayoutRect->Width = sizeInRelativePx;
+    OverrideLayoutRect->Height = sizeInRelativePx;
+}
+
+void Scenario2::SetOverrideTextFont(double size, Windows::UI::Xaml::Media::FontFamily^ fontFamily)
+{
+    OverrideLayoutText->FontSize = PxFromPt(size);  // xaml fontsize is in pixels.
+    OverrideLayoutText->FontFamily = fontFamily;
+}
+
 String^ Scenario2::StringFromDouble(double x)
 {
     // Round to the nearest tenth for display.
     return (((int)(x * 10 + 0.5)) / 10.0).ToString();
 }
 
-void Scenario2::OutputSettings(double rawPixelsPerViewPixel, FrameworkElement^ rectangle, TextBlock^ viewPxText, TextBlock^ rawPxText, TextBlock^ fontTextBlock)
+void Scenario2::OutputSettings(double scaleFactor, FrameworkElement^ rectangle, TextBlock^ relativePxText, TextBlock^ physicalPxText, TextBlock^ fontTextBlock)
 {
-    // Get the size of the rectangle in view pixels and calulate the size in raw pixels.
-    double sizeInViewPx = rectangle->Width;
-    double sizeInRawPx = sizeInViewPx * rawPixelsPerViewPixel;
+    // Get the size of the rectangle in relative pixels and calulate the size in physical pixels.
+    double sizeInRelativePx = rectangle->Width;
+    double sizeInPhysicalPx = sizeInRelativePx * scaleFactor;
 
-    viewPxText->Text = StringFromDouble(sizeInViewPx) + " view px";
-    rawPxText->Text = StringFromDouble(sizeInRawPx) + " raw px";
+    relativePxText->Text = StringFromDouble(sizeInRelativePx) + " relative px";
+    physicalPxText->Text = StringFromDouble(sizeInPhysicalPx) + " physical px";
 
     double fontSize = PtFromPx(fontTextBlock->FontSize);
-    fontTextBlock->Text = StringFromDouble(fontSize) + "pt";
+    fontTextBlock->Text = StringFromDouble(fontSize) + "pt " + fontTextBlock->FontFamily->Source;
 }
 
 void Scenario2::ResetOutput()
 {
     ResolutionTextBlock->Text = StringFromDouble(Window::Current->Bounds.Width) + "x" + StringFromDouble(Window::Current->Bounds.Height);
 
+    double scaleFactor;
+    double fontSize;
+    Windows::UI::Xaml::Media::FontFamily^ fontFamily;
     DisplayInformation^ displayInformation = DisplayInformation::GetForCurrentView();
-    double rawPixelsPerViewPixel = displayInformation->RawPixelsPerViewPixel;
+    switch (displayInformation->ResolutionScale)
+    {
+    case ResolutionScale::Invalid:
+    case ResolutionScale::Scale100Percent:
+    default:
+        scaleFactor = 1.0;
+        fontSize = 20;
+        fontFamily = defaultFontFamily;
+        break;
 
-    // Set the override rectangle size and override text font size by taking our desired
-    // size in raw pixels and converting it to view pixels.
-    const double rectSizeInRawPx = 100;
-    const double rectSizeInViewPx = rectSizeInRawPx / rawPixelsPerViewPixel;
-    OverrideLayoutRect->Width = rectSizeInViewPx;
-    OverrideLayoutRect->Height = rectSizeInViewPx;
+    case ResolutionScale::Scale140Percent:
+        scaleFactor = 1.4;
+        fontSize = 11;
+        fontFamily = overrideFontFamily;
+        break;
 
-    const double fontSizeInRawPx = PxFromPt(20);
-    const double fontSizeInViewPx = fontSizeInRawPx / rawPixelsPerViewPixel;
-    OverrideLayoutText->FontSize = fontSizeInViewPx;
+    case ResolutionScale::Scale180Percent:
+        scaleFactor = 1.8;
+        fontSize = 9;
+        fontFamily = overrideFontFamily;
+        break;
+    }
+
+    // Set the override rectangle size and override text font.
+    const double rectSizeInPhysicalPx = 100;
+    SetOverrideRectSize(rectSizeInPhysicalPx, scaleFactor);
+    SetOverrideTextFont(fontSize, fontFamily);
 
     // Output settings for controls with default scaling behavior.
-    OutputSettings(rawPixelsPerViewPixel, DefaultLayoutRect, DefaultRelativePx, DefaultPhysicalPx, DefaultLayoutText);
+    OutputSettings(scaleFactor, DefaultLayoutRect, DefaultRelativePx, DefaultPhysicalPx, DefaultLayoutText);
     // Output settings for override controls.
-    OutputSettings(rawPixelsPerViewPixel, OverrideLayoutRect, OverrideRelativePx, OverridePhysicalPx, OverrideLayoutText);
+    OutputSettings(scaleFactor, OverrideLayoutRect, OverrideRelativePx, OverridePhysicalPx, OverrideLayoutText);
 }
 
 void Scenario2::OnNavigatedTo(NavigationEventArgs^ e)

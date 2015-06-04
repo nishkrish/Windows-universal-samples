@@ -19,7 +19,7 @@
 #include "Scenario1.g.h"
 #include "MainPage.xaml.h"
 
-namespace SDKTemplate
+namespace ContextMenu
 {
     public ref class Scenario1 sealed
     {
@@ -27,7 +27,7 @@ namespace SDKTemplate
         Scenario1();
 
     private:
-        MainPage^ rootPage;
+        SDKTemplate::MainPage^ rootPage;
 
         void AttachmentImage_RightTapped(Platform::Object^ sender, Windows::UI::Xaml::Input::RightTappedRoutedEventArgs^ e);
         Windows::Foundation::Rect Scenario1::GetElementRect(Windows::UI::Xaml::FrameworkElement^ element);

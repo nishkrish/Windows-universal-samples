@@ -6,7 +6,7 @@
 #include "Scenario3_Transliteration.g.h"
 #include "MainPage.xaml.h"
 
-namespace SDKTemplate
+namespace ELS
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -21,7 +21,7 @@ namespace SDKTemplate
         virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
 
     private:
-        MainPage^ rootPage;
+        SDKTemplate::MainPage^ rootPage;
         void Go_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
     };
 }

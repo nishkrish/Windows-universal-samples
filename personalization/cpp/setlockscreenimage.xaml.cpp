@@ -17,6 +17,7 @@
 #include "SetLockscreenImage.xaml.h"
 
 using namespace SDKTemplate;
+using namespace Personalization;
 
 using namespace Concurrency;
 using namespace Platform;

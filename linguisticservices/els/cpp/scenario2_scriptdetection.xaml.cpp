@@ -5,6 +5,7 @@
 
 #include "elsutil.h"
 
+using namespace ELS;
 using namespace SDKTemplate;
 
 using namespace Windows::UI::Xaml;
@@ -34,7 +35,7 @@ void Scenario2_ScriptDetection::Go_Click(Platform::Object^ sender, Windows::UI::
     if (b != nullptr)
     {
         auto input = TextInput->Text;
-        auto output = ELS::RecognizeTextScripts(input->Data());
+        auto output = RecognizeTextScripts(input->Data());
         TextOutput->Text = ref new Platform::String(output.c_str());
     }
 }

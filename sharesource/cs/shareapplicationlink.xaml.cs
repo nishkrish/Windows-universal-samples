@@ -1,7 +1,6 @@
 ﻿//*********************************************************
 //
 // Copyright (c) Microsoft. All rights reserved.
-// This code is licensed under the MIT License (MIT).
 // THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
 // ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
 // IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
@@ -11,13 +10,14 @@
 
 using System;
 using System.Collections.ObjectModel;
+using SDKTemplate;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.UI.Xaml.Controls;
 using Windows.Storage.Streams;
 using Windows.UI;
 using Windows.UI.Xaml.Data;
 
-namespace SDKTemplate
+namespace ShareSource
 {
     public sealed partial class ShareApplicationLink
     {
