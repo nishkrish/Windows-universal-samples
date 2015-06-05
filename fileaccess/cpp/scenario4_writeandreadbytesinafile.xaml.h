@@ -1,4 +1,13 @@
-﻿// Copyright (c) Microsoft. All rights reserved.
+//*********************************************************
+//
+// Copyright (c) Microsoft. All rights reserved.
+// This code is licensed under the MIT License (MIT).
+// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
+//
+//*********************************************************
 
 #pragma once
 
@@ -6,7 +15,7 @@
 #include "Scenario4_WriteAndReadBytesInAFile.g.h"
 #include "MainPage.xaml.h"
 
-namespace FileAccess
+namespace SDKTemplate
 {
     /// <summary>
     /// Writing and reading bytes in a file.
@@ -18,7 +27,7 @@ namespace FileAccess
         Scenario4();
 
     private:
-        SDKTemplate::MainPage^ rootPage;
+        MainPage^ rootPage;
 
         Windows::Storage::Streams::IBuffer^ GetBufferFromString(Platform::String^ str);
         void WriteBytesButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);

@@ -12,7 +12,6 @@
 using System;
 using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
-using Scaling;
 
 namespace SDKTemplate
 {
@@ -22,8 +21,8 @@ namespace SDKTemplate
 
         List<Scenario> scenarios = new List<Scenario>
         {
-            new Scenario() { Title = "Load images for different scales",         ClassType = typeof(Scaling.Scenario1) },
-            new Scenario() { Title = "Override default scaling of UI elements",  ClassType = typeof(Scaling.Scenario2) },
+            new Scenario() { Title = "Load images for different scales",         ClassType = typeof(Scenario1) },
+            new Scenario() { Title = "Override default scaling of UI elements",  ClassType = typeof(Scenario2) },
         };
     }
 

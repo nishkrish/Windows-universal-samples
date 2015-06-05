@@ -36,7 +36,7 @@
                         var listItemElement = document.createElement("li");
                         listItemElement.textContent = file.name;
 
-                        // Show the item's provider (This PC, SkyDrive, Network, or Application Content).
+                        // Show the item's provider (This PC, OneDrive, Network, or Application Content).
                         listItemElement.textContent += ": On " + file.provider.displayName;
 
                         // Show if the item is available (SkyDrive items are usually available when

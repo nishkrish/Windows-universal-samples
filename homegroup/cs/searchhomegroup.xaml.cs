@@ -11,10 +11,9 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using SDKTemplate;
 using System;
 
-namespace HomeGroup
+namespace SDKTemplate
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.

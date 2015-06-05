@@ -5,7 +5,7 @@
 #include "Scenario1_LanguageDetection.g.h"
 #include "MainPage.xaml.h"
 
-namespace ELS
+namespace SDKTemplate
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -20,7 +20,7 @@ namespace ELS
         virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
 
     private:
-        SDKTemplate::MainPage^ rootPage;
+        MainPage^ rootPage;
         void Go_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
     };
 }

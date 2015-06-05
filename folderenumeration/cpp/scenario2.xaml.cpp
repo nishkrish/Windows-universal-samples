@@ -17,7 +17,6 @@
 #include "Scenario2.xaml.h"
 
 using namespace SDKTemplate;
-using namespace FolderEnumeration;
 
 using namespace concurrency;
 using namespace Platform;
@@ -32,9 +31,6 @@ using namespace Windows::UI::Xaml::Navigation;
 Scenario2::Scenario2()
 {
     InitializeComponent();
-    GroupByMonthButton->Click  += ref new RoutedEventHandler(this, &Scenario2::GroupByMonthButton_Click);
-    GroupByRatingButton->Click += ref new RoutedEventHandler(this, &Scenario2::GroupByRatingButton_Click);
-    GroupByTagButton->Click    += ref new RoutedEventHandler(this, &Scenario2::GroupByTagButton_Click);
 }
 
 void Scenario2::GroupByMonthButton_Click(Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)

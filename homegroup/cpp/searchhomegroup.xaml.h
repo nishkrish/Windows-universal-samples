@@ -5,7 +5,7 @@
 #include "SearchHomeGroup.g.h"
 #include "MainPage.xaml.h"
 
-namespace HomeGroup
+namespace SDKTemplate
 {
     [Windows::Foundation::Metadata::WebHostHidden]
     public ref class SearchHomeGroup sealed
@@ -16,7 +16,7 @@ namespace HomeGroup
     protected:
         virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
     private:
-        SDKTemplate::MainPage^ rootPage;
-        void Default_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+        MainPage^ rootPage;
+        void Search_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
     };
 }

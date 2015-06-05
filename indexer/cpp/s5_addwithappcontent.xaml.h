@@ -1,6 +1,11 @@
 //*********************************************************
 //
 // Copyright (c) Microsoft. All rights reserved.
+// This code is licensed under the MIT License (MIT).
+// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
 //
 //*********************************************************
 
@@ -12,14 +17,14 @@
 #pragma once
 #include "S5_AddWithAppContent.g.h"
 
-namespace Indexer
+namespace SDKTemplate
 {
-	public ref class S5_AddWithAppContent sealed
-	{
-	public:
-		S5_AddWithAppContent();
+    public ref class S5_AddWithAppContent sealed
+    {
+    public:
+        S5_AddWithAppContent();
 
-	private:
-		void AddToIndex_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
-	};
+    private:
+        void AddToIndex_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+    };
 }

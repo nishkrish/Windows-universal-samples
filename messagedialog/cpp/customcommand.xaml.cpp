@@ -17,7 +17,6 @@
 #include "CustomCommand.xaml.h"
 
 using namespace SDKTemplate;
-using namespace MessageDialogSample;
 
 using namespace Windows::UI::Popups;
 using namespace Windows::UI::Xaml;

@@ -1,6 +1,11 @@
 //*********************************************************
 //
 // Copyright (c) Microsoft. All rights reserved.
+// This code is licensed under the MIT License (MIT).
+// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
 //
 //*********************************************************
 
@@ -15,7 +20,6 @@
 #include "Helpers.h"
 
 using namespace SDKTemplate;
-using namespace Indexer;
 
 using namespace concurrency;
 using namespace Platform;
@@ -31,7 +35,7 @@ S3_RetrieveWithAPI::S3_RetrieveWithAPI()
     InitializeRevisionNumber();
 }
 
-void Indexer::S3_RetrieveWithAPI::AddToIndex_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void S3_RetrieveWithAPI::AddToIndex_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
     auto indexer = Windows::Storage::Search::ContentIndexer::GetIndexer();
     AddItemsToIndex(indexer);
@@ -57,14 +61,14 @@ void ExecuteQueryHelper(String^ queryString)
 }
 
 // This function retrieves all items added to the index by this app via the ContentIndexer.
-void Indexer::S3_RetrieveWithAPI::RetrieveAllItems_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void S3_RetrieveWithAPI::RetrieveAllItems_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
     ExecuteQueryHelper(L"*");
 }
 
 // This function retrieves all items added to the index by this app via the ContentIndexer which contain the work "0" in
 // either the ItemNameDisplay, Keywords, or Comment properties.
-void Indexer::S3_RetrieveWithAPI::RetrieveMatchingItems_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void S3_RetrieveWithAPI::RetrieveMatchingItems_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
     ExecuteQueryHelper(L"0");
 }

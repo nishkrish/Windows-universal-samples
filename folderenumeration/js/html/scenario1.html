@@ -5,14 +5,21 @@
     <script src="/js/scenario1.js"></script>
 </head>
 <body>
-    <div data-win-control="SdkSample.ScenarioInput">
-        <p>Get the files and folders in the top-level of the Pictures Library.</p>
-        <p>Make sure there are folders and/or pictures in your Pictures Library before you try to get them.</p>
-        <button class="action" id="getFilesAndFolders">Get files and folders</button>
-        <br /><br />
-    </div>
-    <div data-win-control="SdkSample.ScenarioOutput">
-        <div id="itemsList"></div>
+    <div id="scenarioView">
+        <div>
+            <h2 id="sampleHeader">Description:</h2>
+            <div id="scenarioDescription">
+                Enumerating
+            </div>
+        </div>
+        <div id="scenarioContent">
+            <p>Get the files and folders in the top-level of the Pictures Library.</p>
+            <p>Make sure there are folders and/or pictures in your Pictures Library before you try to get them.</p>
+            <p><button class="action" id="getFilesAndFolders">Get files and folders</button></p>
+        </div>
+        <div id="scenarioOutput">
+            <div id="itemsList"></div>
+        </div>
     </div>
 </body>
 </html>

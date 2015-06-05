@@ -19,7 +19,7 @@
 #include "Scenario1.g.h"
 #include "MainPage.xaml.h"
 
-namespace FolderEnumeration
+namespace SDKTemplate
 {
     public ref class Scenario1 sealed
     {

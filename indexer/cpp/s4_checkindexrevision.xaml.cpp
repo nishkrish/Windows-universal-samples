@@ -1,6 +1,11 @@
 //*********************************************************
 //
 // Copyright (c) Microsoft. All rights reserved.
+// This code is licensed under the MIT License (MIT).
+// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
 //
 //*********************************************************
 
@@ -15,7 +20,6 @@
 #include "Helpers.h"
 
 using namespace SDKTemplate;
-using namespace Indexer;
 
 using namespace concurrency;
 using namespace Platform;
@@ -49,7 +53,7 @@ S4_CheckIndexRevision::S4_CheckIndexRevision()
 // but when hit, the app should re-do the missed operations. Tracking the expected index revision number can be used to
 // create checkpoints in the app so it can only re-do the operations required to match the expected index revision
 // number.
-void Indexer::S4_CheckIndexRevision::CheckIndexRevision_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void S4_CheckIndexRevision::CheckIndexRevision_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
     auto indexer = Windows::Storage::Search::ContentIndexer::GetIndexer();
     auto localSettings = Windows::Storage::ApplicationData::Current->LocalSettings;

@@ -14,7 +14,6 @@
 #include "Scenario1.xaml.h"
 
 using namespace SDKTemplate;
-using namespace MediaTransportControls;
 
 using namespace Platform;
 using namespace Concurrency;

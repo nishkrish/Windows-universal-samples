@@ -14,7 +14,6 @@
 #include "MainPage.xaml.h"
 
 using namespace SDKTemplate;
-using namespace Clipboard;
 
 using namespace Platform;
 using namespace Windows::Foundation;

@@ -1,14 +1,13 @@
 ﻿//*********************************************************
 //
 // Copyright (c) Microsoft. All rights reserved.
+// This code is licensed under the MIT License (MIT).
 // THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
 // ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
 // IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
 // PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
 //
 //*********************************************************
-
-using SDKTemplate;
 
 using System;
 using Windows.Foundation;
@@ -19,7 +18,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace ContextMenu
+namespace SDKTemplate
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -29,7 +28,6 @@ namespace ContextMenu
         public Scenario1()
         {
             this.InitializeComponent();
-            AttachmentImage.RightTapped += new RightTappedEventHandler(AttachmentImage_RightTapped);
         }
 
         public static Rect GetElementRect(FrameworkElement element)

@@ -6,7 +6,6 @@
 #include "SampleConfiguration.h"
 
 using namespace SDKTemplate;
-using namespace ShareSource;
 using namespace Windows::ApplicationModel::Activation;
 using namespace Windows::UI::Xaml; 
 using namespace Windows::UI::Xaml::Controls;
@@ -14,15 +13,15 @@ using namespace Windows::UI::Xaml::Interop;
 
 Platform::Array<Scenario>^ MainPage::scenariosInner = ref new Platform::Array<Scenario>
 {
-    { "Share text",                 "ShareSource.ShareText" },
-    { "Share web link",             "ShareSource.ShareWebLink" },
-    { "Share application link",     "ShareSource.ShareApplicationLink" },
-    { "Share image",                "ShareSource.ShareImage" },
-    { "Share files",                "ShareSource.ShareFiles" },
-    { "Share delay rendered files", "ShareSource.ShareDelayRenderedFiles" },
-    { "Share HTML content",         "ShareSource.ShareHtml" },
-    { "Share custom data",          "ShareSource.ShareCustomData" },
-    { "Fail with display text",     "ShareSource.SetErrorMessage" }
+    { "Share text",                 "SDKTemplate.ShareText" },
+    { "Share web link",             "SDKTemplate.ShareWebLink" },
+    { "Share application link",     "SDKTemplate.ShareApplicationLink" },
+    { "Share image",                "SDKTemplate.ShareImage" },
+    { "Share files",                "SDKTemplate.ShareFiles" },
+    { "Share delay rendered files", "SDKTemplate.ShareDelayRenderedFiles" },
+    { "Share HTML content",         "SDKTemplate.ShareHtml" },
+    { "Share custom data",          "SDKTemplate.ShareCustomData" },
+    { "Fail with display text",     "SDKTemplate.SetErrorMessage" }
 };
 
 void App::OnActivated(IActivatedEventArgs^ args)

@@ -13,7 +13,7 @@
 #include "CopyFiles.g.h"
 #include "MainPage.g.h"
 
-namespace Clipboard
+namespace SDKTemplate
 {
     [Windows::Foundation::Metadata::WebHostHidden]
     public ref class CopyFiles sealed
@@ -25,7 +25,7 @@ namespace Clipboard
         virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
 
     private:
-        SDKTemplate::MainPage^ rootPage;
+        MainPage^ rootPage;
 
         void CopyButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
         void PasteButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);

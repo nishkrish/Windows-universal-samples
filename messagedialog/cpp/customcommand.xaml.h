@@ -18,7 +18,7 @@
 #include "CustomCommand.g.h"
 #include "MainPage.xaml.h"
 
-namespace MessageDialogSample
+namespace SDKTemplate
 {
     [Windows::Foundation::Metadata::WebHostHidden]
     public ref class CustomCommand sealed
@@ -29,7 +29,7 @@ namespace MessageDialogSample
     protected:
         virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
     private:
-        SDKTemplate::MainPage^ rootPage;
+        MainPage^ rootPage;
         void CustomCommandButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
     };
 }

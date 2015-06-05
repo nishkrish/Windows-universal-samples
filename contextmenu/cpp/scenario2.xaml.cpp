@@ -17,7 +17,6 @@
 #include "Scenario2.xaml.h"
 
 using namespace SDKTemplate;
-using namespace ContextMenu;
 
 using namespace concurrency;
 using namespace Platform;
@@ -33,7 +32,6 @@ Scenario2::Scenario2()
 {
     InitializeComponent();
     rootPage = MainPage::Current;
-    ReadOnlyTextBox->ContextMenuOpening += ref new ContextMenuOpeningEventHandler(this, &Scenario2::ReadOnlyTextBox_ContextMenuOpening);
 }
 
 // returns a rect for selected text in a single line.

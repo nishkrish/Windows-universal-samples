@@ -16,10 +16,10 @@ using namespace Windows::UI::Xaml::Navigation;
 
 Array<Scenario>^ MainPage::scenariosInner = ref new Array<Scenario>
 {
-    { "Copy and paste text",        "Clipboard.CopyText" },
-    { "Copy and paste an image",    "Clipboard.CopyImage" },
-    { "Copy and paste files",       "Clipboard.CopyFiles" },
-    { "Other Clipboard operations", "Clipboard.OtherScenarios" }
+    { "Copy and paste text",        "SDKTemplate.CopyText" },
+    { "Copy and paste an image",    "SDKTemplate.CopyImage" },
+    { "Copy and paste files",       "SDKTemplate.CopyFiles" },
+    { "Other Clipboard operations", "SDKTemplate.OtherScenarios" }
 };
 
 bool MainPage::windowActive = true;

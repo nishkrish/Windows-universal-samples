@@ -19,7 +19,7 @@
 #include "Scenario2.g.h"
 #include "MainPage.xaml.h"
 
-namespace ContextMenu
+namespace SDKTemplate
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.

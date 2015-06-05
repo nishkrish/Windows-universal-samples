@@ -8,8 +8,6 @@
 //
 //*********************************************************
 
-using SDKTemplate;
-
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,17 +16,16 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-namespace FolderEnumeration
+namespace SDKTemplate
 {
     public sealed partial class Scenario1 : Page
     {
         public Scenario1()
         {
             this.InitializeComponent();
-            GetFilesAndFoldersButton.Click += new RoutedEventHandler(GetFilesAndFolders_Click);
         }
 
-        private async void GetFilesAndFolders_Click(object sender, RoutedEventArgs e)
+        private async void GetFilesAndFoldersButton_Click(object sender, RoutedEventArgs e)
         {
             StorageFolder picturesFolder = KnownFolders.PicturesLibrary;
 

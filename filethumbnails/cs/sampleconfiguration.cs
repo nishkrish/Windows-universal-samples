@@ -44,12 +44,12 @@ namespace SDKTemplate
 
         List<Scenario> scenarios = new List<Scenario>
         {
-            new Scenario() { Title = "Display a thumbnail for a picture",    ClassType = typeof(FileThumbnails.Scenario1) },
-            new Scenario() { Title = "Display album art for a song",         ClassType = typeof(FileThumbnails.Scenario2) },
-            new Scenario() { Title = "Display an icon for a document",       ClassType = typeof(FileThumbnails.Scenario3) },
-            new Scenario() { Title = "Display a thumbnail for a folder",     ClassType = typeof(FileThumbnails.Scenario4) },
-            new Scenario() { Title = "Display a thumbnail for a file group", ClassType = typeof(FileThumbnails.Scenario5) },
-            new Scenario() { Title = "Display a scaled image",               ClassType = typeof(FileThumbnails.Scenario6) },
+            new Scenario() { Title = "Display a thumbnail for a picture",    ClassType = typeof(Scenario1) },
+            new Scenario() { Title = "Display album art for a song",         ClassType = typeof(Scenario2) },
+            new Scenario() { Title = "Display an icon for a document",       ClassType = typeof(Scenario3) },
+            new Scenario() { Title = "Display a thumbnail for a folder",     ClassType = typeof(Scenario4) },
+            new Scenario() { Title = "Display a thumbnail for a file group", ClassType = typeof(Scenario5) },
+            new Scenario() { Title = "Display a scaled image",               ClassType = typeof(Scenario6) },
         };
 
         private BitmapImage _placeholder;

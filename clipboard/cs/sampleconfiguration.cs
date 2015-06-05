@@ -16,7 +16,6 @@ using Windows.ApplicationModel.DataTransfer;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Clipboard;
 
 namespace SDKTemplate
 {
@@ -30,10 +29,10 @@ namespace SDKTemplate
 
         List<Scenario> scenarios = new List<Scenario>
         {
-            new Scenario() { Title = "Copy and paste text",        ClassType = typeof(Clipboard.CopyText) },
-            new Scenario() { Title = "Copy and paste an image",    ClassType = typeof(Clipboard.CopyImage) },
-            new Scenario() { Title = "Copy and paste files",       ClassType = typeof(Clipboard.CopyFiles) },
-            new Scenario() { Title = "Other Clipboard operations", ClassType = typeof(Clipboard.OtherScenarios) }
+            new Scenario() { Title = "Copy and paste text",        ClassType = typeof(CopyText) },
+            new Scenario() { Title = "Copy and paste an image",    ClassType = typeof(CopyImage) },
+            new Scenario() { Title = "Copy and paste files",       ClassType = typeof(CopyFiles) },
+            new Scenario() { Title = "Other Clipboard operations", ClassType = typeof(OtherScenarios) }
         };
 
         public void EnableClipboardContentChangedNotifications(bool enable)

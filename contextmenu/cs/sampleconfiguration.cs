@@ -12,7 +12,6 @@
 using System;
 using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
-using ContextMenu;
 
 namespace SDKTemplate
 {
@@ -22,8 +21,8 @@ namespace SDKTemplate
 
         List<Scenario> scenarios = new List<Scenario>
         {
-            new Scenario() { Title = "Show a context menu",            ClassType = typeof(ContextMenu.Scenario1) },
-            new Scenario() { Title = "Replace a default context menu", ClassType = typeof(ContextMenu.Scenario2) },
+            new Scenario() { Title = "Show a context menu",            ClassType = typeof(Scenario1) },
+            new Scenario() { Title = "Replace a default context menu", ClassType = typeof(Scenario2) },
         };
     }
 

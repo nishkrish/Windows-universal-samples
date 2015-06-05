@@ -1,10 +1,18 @@
-﻿// Copyright (c) Microsoft. All rights reserved.
+//*********************************************************
+//
+// Copyright (c) Microsoft. All rights reserved.
+// This code is licensed under the MIT License (MIT).
+// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
+//
+//*********************************************************
 
 #include "pch.h"
 #include "Scenario4_WriteAndReadBytesInAFile.xaml.h"
 
 using namespace SDKTemplate;
-using namespace FileAccess;
 
 using namespace concurrency;
 using namespace Platform;
@@ -75,6 +83,7 @@ void Scenario4::ReadBytesButton_Click(Object^ sender, RoutedEventArgs^ e)
                 IBuffer^ buffer = task.get();
                 DataReader^ dataReader = DataReader::FromBuffer(buffer);
                 String^ fileContent = dataReader->ReadString(buffer->Length);
+                delete dataReader; // As a best practice, explicitly close the dataReader resource as soon as it is no longer needed.
                 rootPage->NotifyUser("The following " + buffer->Length.ToString() + " bytes of text were read from '" + file->Name + "':\n" + fileContent, NotifyType::StatusMessage);
             }
             catch (COMException^ ex)

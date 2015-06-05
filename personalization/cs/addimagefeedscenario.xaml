@@ -2,6 +2,7 @@
 //*********************************************************
 //
 // Copyright (c) Microsoft. All rights reserved.
+// This code is licensed under the MIT License (MIT).
 // THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
 // ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
 // IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
@@ -10,7 +11,7 @@
 //*********************************************************
 -->
 <Page
-    x:Class="Personalization.AddImageFeedScenario"
+    x:Class="SDKTemplate.AddImageFeedScenario"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"

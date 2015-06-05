@@ -17,7 +17,6 @@
 #include "DefaultCloseCommand.xaml.h"
 
 using namespace SDKTemplate;
-using namespace MessageDialogSample;
 
 using namespace concurrency;
 using namespace Platform;

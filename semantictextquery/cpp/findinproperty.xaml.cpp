@@ -15,7 +15,6 @@
 #include "MainPage.xaml.h"
 
 using namespace SDKTemplate;
-using namespace SemanticTextQuery;
 using namespace concurrency;
 using namespace Platform;
 using namespace Windows::Foundation;
@@ -34,7 +33,7 @@ Scenario2::Scenario2()
     ContentText->Text = "There are many good times to be had. Go for a walk among the trees.";
 }
 
-void SemanticTextQuery::Scenario2::Find_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void Scenario2::Find_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
     ContentTextOutput->Text = "";
     TitleTextOutput->Text = "";

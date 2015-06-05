@@ -4,7 +4,6 @@
 #include "Scenario3_Transliteration.xaml.h"
 #include "elsutil.h"
 
-using namespace ELS;
 using namespace SDKTemplate;
 
 using namespace Platform;
@@ -43,7 +42,7 @@ void Scenario3_Transliteration::Go_Click(Platform::Object^ sender, Windows::UI::
     if (b != nullptr)
     {
         auto input = TextInput->Text;
-        auto output = TransliterateFromCyrillicToLatin(input->Data());
+        auto output = ELS::TransliterateFromCyrillicToLatin(input->Data());
         TextOutput->Text = ref new Platform::String(output.c_str());
     }
 }

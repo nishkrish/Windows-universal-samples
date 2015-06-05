@@ -4,7 +4,6 @@
 #include "SearchHomeGroup.xaml.h"
 
 using namespace SDKTemplate;
-using namespace HomeGroup;
 
 using namespace concurrency;
 using namespace Platform;
@@ -20,7 +19,7 @@ using namespace Windows::UI::Xaml::Input;
 using namespace Windows::UI::Xaml::Media;
 using namespace Windows::UI::Xaml::Navigation;
 
-HomeGroup::SearchHomeGroup::SearchHomeGroup()
+SearchHomeGroup::SearchHomeGroup()
 {
     InitializeComponent();
 }
@@ -37,7 +36,7 @@ void SearchHomeGroup::OnNavigatedTo(NavigationEventArgs^ e)
     rootPage = MainPage::Current;
 }
 
-void SearchHomeGroup::Default_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void SearchHomeGroup::Search_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
     Button^ button = safe_cast<Button^>(sender);
     if (button != nullptr)

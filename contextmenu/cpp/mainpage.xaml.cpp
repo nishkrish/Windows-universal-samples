@@ -117,12 +117,10 @@ void MainPage::NotifyUser(String^ strMessage, NotifyType type)
     if (StatusBlock->Text != "")
     {
         StatusBorder->Visibility = Windows::UI::Xaml::Visibility::Visible;
-        StatusPanel->Visibility = Windows::UI::Xaml::Visibility::Visible;
     }
     else
     {
         StatusBorder->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
-        StatusPanel->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
     }
 }
 
@@ -134,6 +132,6 @@ void MainPage::Footer_Click(Object^ sender, RoutedEventArgs^ e)
 
 void MainPage::Button_Click(Object^ sender, RoutedEventArgs^ e)
 {
-    Splitter->IsPaneOpen = !Splitter->IsPaneOpen;
+    Splitter->IsPaneOpen = (Splitter->IsPaneOpen == true) ? false : true;
     StatusBorder->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
 }
