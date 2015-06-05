@@ -7,64 +7,58 @@
 
 (function () {
     "use strict";
-    var displayInformation;
-    var standardBox;
-    var overrideBox;
-    var overrideFont;
-
     var page = WinJS.UI.Pages.define("/html/scenario2.html", {
         ready: function (element, options) {
-            displayInformation = Windows.Graphics.Display.DisplayInformation.getForCurrentView();
-            standardBox = document.getElementById("standardBox");
-            overrideBox = document.getElementById("overrideBox");
-            overrideFont = document.getElementById("overrideFont");
-
-            window.addEventListener("resize", initialize, false);
-            displayInformation.addEventListener("dpichanged", initialize);
             initialize();
+            window.addEventListener("resize", initialize, false);
+            Windows.Graphics.Display.DisplayInformation.getForCurrentView().addEventListener("dpichanged", initialize);
         },
         unload: function () {
             window.removeEventListener("resize", initialize, false);
-            displayInformation.removeEventListener("dpichanged", initialize);
+            Windows.Graphics.Display.DisplayInformation.getForCurrentView().removeEventListener("dpichanged", initialize);
         }
     });
 
-    function pxToPt(px) {
-        return px * 72 / 96;
-    }
-
-    function roundToTenths(v) {
-        return Math.round(v * 10) / 10;
-    }
-
     function initialize() {
-        // Get the effective size
-        var rect = document.documentElement.getBoundingClientRect();
-        document.getElementById("effectiveResolutionValue").textContent = roundToTenths(rect.width) + "x" + roundToTenths(rect.height);
+        // Get the effective width and round to the nearest tenth
+        var effectiveWidth = Math.round(document.documentElement.getBoundingClientRect().width * 10) / 10;
+        // Get the effective height and round to the nearest tenth
+        var effectiveHeight = Math.round(document.documentElement.getBoundingClientRect().height * 10) / 10;
+        document.getElementById("effectiveResolutionValue").textContent = effectiveWidth + "x" + effectiveHeight;
+        var fontStyle = getComputedStyle(document.getElementById("overrideFont"));
+        document.getElementById("overrideFont").textContent = fontStyle.fontSize + " " + fontStyle.fontFamily.replace(/\"(.+?)\"/g, "$1");
+        updateBoxLabels();
+    }
 
-        var rawPixelsPerViewPixel = displayInformation.rawPixelsPerViewPixel;
+    function updateBoxLabels() {
+        var standardSize,
+            overrideSize;
+        var scale;
 
-        // Set the override rectangle size and override text font size by taking our desired
-        // size in raw pixels and converting it to view pixels.
-        var rectSizeInRawPx = 100;
-        var rectSizeInViewPx = rectSizeInRawPx / rawPixelsPerViewPixel;
-        overrideBox.style.width = rectSizeInViewPx + "px";
-        overrideBox.style.height = rectSizeInViewPx + "px";
+        switch (Windows.Graphics.Display.DisplayInformation.getForCurrentView().resolutionScale) {
+            default:
+            case 100:
+                // Scale 100%
+                scale = 1.0;
+                break;
+            case 140:
+                // Scale 140%
+                scale = 1.4;
+                break;
+            case 180:
+                // Scale 180%
+                scale = 1.8;
+                break;
+        }
+        // Retrieve the sub pixel size of the box and compute the physical pixel size with the scale factor.
+        var box = document.getElementById("standardBox");
+        var size = box.getBoundingClientRect().width;
+        document.getElementById("standardBoxPhysicalPixels").textContent = Math.round(size * scale) + " physical px";
+        document.getElementById("standardBoxRelativePixels").textContent = Math.round(size * 10) / 10 + " relative px";
 
-        var fontSizeInRawPt = 20;
-        var fontSizeInViewPt = fontSizeInRawPt / rawPixelsPerViewPixel;
-        overrideFont.style.fontSize = fontSizeInViewPt + "pt";
-
-        // Report the values we set.
-        var viewPixels = standardBox.getBoundingClientRect().width;
-        document.getElementById("standardBoxPhysicalPixels").textContent = Math.round(viewPixels * rawPixelsPerViewPixel) + " raw px";
-        document.getElementById("standardBoxRelativePixels").textContent = roundToTenths(viewPixels) + " view px";
-
-        viewPixels = overrideBox.getBoundingClientRect().width;
-        document.getElementById("overrideBoxPhysicalPixels").textContent = Math.round(viewPixels * rawPixelsPerViewPixel) + " raw px";
-        document.getElementById("overrideBoxRelativePixels").textContent = roundToTenths(viewPixels) + " view px";
-
-        var fontSize = roundToTenths(pxToPt(parseFloat(getComputedStyle(overrideFont).fontSize)));
-        overrideFont.textContent = fontSize + "pt";
+        box = document.getElementById("overrideBox");
+        size = box.getBoundingClientRect().width;
+        document.getElementById("overrideBoxPhysicalPixels").textContent = Math.round(size * scale) + " physical px";
+        document.getElementById("overrideBoxRelativePixels").textContent = Math.round(size * 10) / 10 + " relative px";
     }
 })();

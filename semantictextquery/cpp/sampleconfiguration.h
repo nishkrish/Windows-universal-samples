@@ -37,7 +37,7 @@ namespace SDKTemplate
     };
 }
 
-namespace SDKTemplate
+namespace SemanticTextQuery
 {
     void HighlightRanges(Windows::UI::Xaml::Controls::TextBlock^ tb,  Platform::String^ strText, Windows::Foundation::Collections::IVectorView<Windows::Data::Text::TextSegment>^ ranges);
 }

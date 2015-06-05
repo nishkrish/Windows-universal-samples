@@ -4,6 +4,8 @@
 //
 //*********************************************************
 
+using SDKTemplate;
+
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -18,7 +20,7 @@ using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 
-namespace SDKTemplate
+namespace MediaTransportControls
 {
     /// <summary>
     /// Page for scenario 1 of our sample.

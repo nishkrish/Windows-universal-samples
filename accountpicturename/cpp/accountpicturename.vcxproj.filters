@@ -20,6 +20,7 @@
     <ClCompile Include="GetAccountPicture.xaml.cpp" />
     <ClCompile Include="GetUserDisplayName.xaml.cpp" />
     <ClCompile Include="GetUserFirstAndLastName.xaml.cpp" />
+    <ClCompile Include="App.xaml.custom.cpp" />
     <ClCompile Include="SetAccountPicture.xaml.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -30,6 +31,7 @@
     <ClInclude Include="GetAccountPicture.xaml.h" />
     <ClInclude Include="GetUserDisplayName.xaml.h" />
     <ClInclude Include="GetUserFirstAndLastName.xaml.h" />
+    <ClInclude Include="App.xaml.custom.h" />
     <ClInclude Include="SetAccountPicture.xaml.h" />
   </ItemGroup>
   <ItemGroup>

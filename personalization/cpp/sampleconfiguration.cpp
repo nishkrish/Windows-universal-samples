@@ -8,6 +8,6 @@ using namespace SDKTemplate;
 
 Platform::Array<Scenario>^ MainPage::scenariosInner = ref new Platform::Array<Scenario>
 {
-    { "Set lock screen image", "SDKTemplate.SetLockscreenImage" },
-    { "Register lock screen slide show image feed", "SDKTemplate.AddImageFeedScenario" }
+    { "Set lock screen image", "Personalization.SetLockscreenImage" },
+    { "Register lock screen slide show image feed", "Personalization.AddImageFeedScenario" }
 };

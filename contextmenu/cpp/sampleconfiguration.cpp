@@ -8,6 +8,6 @@ using namespace SDKTemplate;
 
 Platform::Array<Scenario>^ MainPage::scenariosInner = ref new Platform::Array<Scenario>
 {
-    { "Show a context menu",            "SDKTemplate.Scenario1" },
-    { "Replace a default context menu", "SDKTemplate.Scenario2" },
+    { "Show a context menu",            "ContextMenu.Scenario1" },
+    { "Replace a default context menu", "ContextMenu.Scenario2" },
 };

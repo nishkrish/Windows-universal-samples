@@ -19,7 +19,7 @@
 #include "Scenario4.g.h"
 #include "MainPage.xaml.h"
 
-namespace SDKTemplate
+namespace FolderEnumeration
 {
     [Windows::Foundation::Metadata::WebHostHidden]
     public ref class Scenario4 sealed

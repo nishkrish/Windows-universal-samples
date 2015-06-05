@@ -17,6 +17,7 @@
 #include "CompletedCallback.xaml.h"
 
 using namespace SDKTemplate;
+using namespace MessageDialogSample;
 
 using namespace concurrency;
 using namespace Platform;

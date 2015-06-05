@@ -4,6 +4,7 @@
 #include "HomeGroupAdvancedSearch.xaml.h"
 
 using namespace SDKTemplate;
+using namespace HomeGroup;
 
 using namespace Platform;
 using namespace Windows::Foundation;
@@ -90,7 +91,7 @@ void HomeGroupAdvancedSearch::SetButtons()
 }
 
 
-void HomeGroupAdvancedSearch::Default_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void HomeGroup::HomeGroupAdvancedSearch::Default_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
     Button^ button = safe_cast<Button^>(sender);
     if (button != nullptr)

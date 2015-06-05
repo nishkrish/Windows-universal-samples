@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.IO;
 using Windows.Storage;
 using Windows.UI.Xaml.Controls;
+using FileAccess;
 
 namespace SDKTemplate
 {
@@ -23,17 +24,17 @@ namespace SDKTemplate
 
         List<Scenario> scenarios = new List<Scenario>
         {
-            new Scenario() { Title = "Creating a file",                                      ClassType = typeof(SDKTemplate.Scenario1)  },
-            new Scenario() { Title = "Getting a file's parent folder",                       ClassType = typeof(SDKTemplate.Scenario2)  },
-            new Scenario() { Title = "Writing and reading text in a file",                   ClassType = typeof(SDKTemplate.Scenario3)  },
-            new Scenario() { Title = "Writing and reading bytes in a file",                  ClassType = typeof(SDKTemplate.Scenario4)  },
-            new Scenario() { Title = "Writing and reading using a stream",                   ClassType = typeof(SDKTemplate.Scenario5)  },
-            new Scenario() { Title = "Displaying file properties",                           ClassType = typeof(SDKTemplate.Scenario6)  },
-            new Scenario() { Title = "Persisting access to a storage item for future use",   ClassType = typeof(SDKTemplate.Scenario7)  },
-            new Scenario() { Title = "Copying a file",                                       ClassType = typeof(SDKTemplate.Scenario8)  },
-            new Scenario() { Title = "Comparing two files to see if they are the same file", ClassType = typeof(SDKTemplate.Scenario9)  },
-            new Scenario() { Title = "Deleting a file",                                      ClassType = typeof(SDKTemplate.Scenario10) },
-            new Scenario() { Title = "Attempting to get a file with no error on failure",    ClassType = typeof(SDKTemplate.Scenario11) },
+            new Scenario() { Title = "Creating a file",                                      ClassType = typeof(FileAccess.Scenario1)  },
+            new Scenario() { Title = "Getting a file's parent folder",                       ClassType = typeof(FileAccess.Scenario2)  },
+            new Scenario() { Title = "Writing and reading text in a file",                   ClassType = typeof(FileAccess.Scenario3)  },
+            new Scenario() { Title = "Writing and reading bytes in a file",                  ClassType = typeof(FileAccess.Scenario4)  },
+            new Scenario() { Title = "Writing and reading using a stream",                   ClassType = typeof(FileAccess.Scenario5)  },
+            new Scenario() { Title = "Displaying file properties",                           ClassType = typeof(FileAccess.Scenario6)  },
+            new Scenario() { Title = "Persisting access to a storage item for future use",   ClassType = typeof(FileAccess.Scenario7)  },
+            new Scenario() { Title = "Copying a file",                                       ClassType = typeof(FileAccess.Scenario8)  },
+            new Scenario() { Title = "Comparing two files to see if they are the same file", ClassType = typeof(FileAccess.Scenario9)  },
+            new Scenario() { Title = "Deleting a file",                                      ClassType = typeof(FileAccess.Scenario10) },
+            new Scenario() { Title = "Attempting to get a file with no error on failure",    ClassType = typeof(FileAccess.Scenario11) },
         };
 
         public const string filename = "sample.dat";

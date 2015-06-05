@@ -15,6 +15,7 @@
 #include "MainPage.xaml.h"
 
 using namespace SDKTemplate;
+using namespace SemanticTextQuery;
 using namespace concurrency;
 using namespace Platform;
 using namespace Windows::Foundation;
@@ -32,7 +33,7 @@ Scenario3::Scenario3()
     FindQueryText->Text = "a AND datemodified:>2/1/2013";
 }
 
-void Scenario3::Find_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void SemanticTextQuery::Scenario3::Find_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
     ContentTextOutput->Text = "";
     if (FindQueryText->Text == "")

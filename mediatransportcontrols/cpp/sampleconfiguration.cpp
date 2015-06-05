@@ -8,5 +8,5 @@ using namespace SDKTemplate;
 
 Platform::Array<Scenario>^ MainPage::scenariosInner = ref new Platform::Array<Scenario>
 {
-    { "System media transport controls", "SDKTemplate.Scenario1" }, 
+    { "System media transport controls", "MediaTransportControls.Scenario1" }, 
 };

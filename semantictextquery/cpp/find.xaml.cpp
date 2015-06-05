@@ -15,6 +15,7 @@
 #include "MainPage.xaml.h"
 
 using namespace SDKTemplate;
+using namespace SemanticTextQuery;
 using namespace concurrency;
 using namespace Platform;
 using namespace Windows::Foundation;
@@ -33,7 +34,7 @@ Scenario1::Scenario1()
     ContentText->Text = "Mount Rainier is on the North American Continent.";
 }
 
-void Scenario1::Find_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void SemanticTextQuery::Scenario1::Find_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
     ContentTextOutput->Text = "";
     auto mySemanticTextQuery = ref new Windows::Data::Text::SemanticTextQuery(FindQueryText->Text);

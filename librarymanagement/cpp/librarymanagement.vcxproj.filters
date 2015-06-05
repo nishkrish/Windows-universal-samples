@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Assets">
@@ -17,18 +17,18 @@
     <ClCompile Include="MainPage.xaml.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="SampleConfiguration.cpp" />
-    <ClCompile Include="S1_AddFolder.xaml.cpp" />
-    <ClCompile Include="S2_ListFolders.xaml.cpp" />
-    <ClCompile Include="S3_RemoveFolder.xaml.cpp" />
+    <ClCompile Include="Scenario1_ShortName.xaml.cpp" />
+    <ClCompile Include="Scenario2_ShortName.xaml.cpp" />
+    <ClCompile Include="Scenario3_ShortName.xaml.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="App.xaml.h" />
     <ClInclude Include="MainPage.xaml.h" />
     <ClInclude Include="SampleConfiguration.h" />
-    <ClInclude Include="S1_AddFolder.xaml.h" />
-    <ClInclude Include="S2_ListFolders.xaml.h" />
-    <ClInclude Include="S3_RemoveFolder.xaml.h" />
+    <ClInclude Include="Scenario1_ShortName.xaml.h" />
+    <ClInclude Include="Scenario2_ShortName.xaml.h" />
+    <ClInclude Include="Scenario3_ShortName.xaml.h" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />
@@ -38,9 +38,9 @@
     <Page Include="Styles\Styles.xaml">
       <Filter>Styles</Filter>
     </Page>
-    <Page Include="S1_AddFolder.xaml" />
-    <Page Include="S2_ListFolders.xaml" />
-    <Page Include="S3_RemoveFolder.xaml" />
+    <Page Include="Scenario1_ShortName.xaml" />
+    <Page Include="Scenario2_ShortName.xaml" />
+    <Page Include="Scenario3_ShortName.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\smallTile-sdk.png">

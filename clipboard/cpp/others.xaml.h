@@ -13,7 +13,7 @@
 #include "Others.g.h"
 #include "MainPage.g.h"
 
-namespace SDKTemplate
+namespace Clipboard
 {
     [Windows::Foundation::Metadata::WebHostHidden]
     public ref class OtherScenarios sealed
@@ -33,6 +33,6 @@ namespace SDKTemplate
         void ClearOutput();
 
         static bool registerContentChanged;
-        MainPage^ rootPage;
+        SDKTemplate::MainPage^ rootPage;
     };
 }

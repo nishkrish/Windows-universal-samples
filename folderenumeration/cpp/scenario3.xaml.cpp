@@ -17,6 +17,7 @@
 #include "Scenario3.xaml.h"
 
 using namespace SDKTemplate;
+using namespace FolderEnumeration;
 
 using namespace concurrency;
 using namespace Platform;
@@ -38,6 +39,7 @@ String^ Scenario3::ColorSpaceProperty = "System.Image.ColorSpace";
 Scenario3::Scenario3()
 {
     InitializeComponent();
+    GetFilesButton->Click += ref new RoutedEventHandler(this, &Scenario3::GetFilesButton_Click);
 }
 
 String^ Scenario3::GetPropertyDisplayValue(Object^ property)

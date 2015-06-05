@@ -18,7 +18,7 @@
 #include "CancelCommand.g.h"
 #include "MainPage.xaml.h"
 
-namespace SDKTemplate
+namespace MessageDialogSample
 {
     [Windows::Foundation::Metadata::WebHostHidden]
     public ref class CancelCommand sealed
@@ -29,7 +29,7 @@ namespace SDKTemplate
     protected:
         virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
     private:
-        MainPage^ rootPage;
+        SDKTemplate::MainPage^ rootPage;
         void CancelCommandButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
         void CommandInvokedHandler(Windows::UI::Popups::IUICommand^ command);
     };

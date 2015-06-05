@@ -8,8 +8,8 @@ using namespace SDKTemplate;
 
 Platform::Array<Scenario>^ MainPage::scenariosInner = ref new Platform::Array<Scenario>
 {
-    { "Use custom commands", "SDKTemplate.CustomCommand" },
-    { "Use default close command", "SDKTemplate.DefaultCloseCommand" },
-    { "Use completed callback", "SDKTemplate.CompletedCallback" },
-    { "Use cancel command", "SDKTemplate.CancelCommand" }
+   { "Use custom commands", "MessageDialogSample.CustomCommand" },
+    { "Use default close command", "MessageDialogSample.DefaultCloseCommand" },
+    { "Use completed callback", "MessageDialogSample.CompletedCallback" },
+    { "Use cancel command", "MessageDialogSample.CancelCommand" }
 };

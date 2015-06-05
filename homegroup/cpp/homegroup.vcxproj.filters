@@ -20,7 +20,6 @@
     <ClCompile Include="HomeGroupAdvancedSearch.xaml.cpp" />
     <ClCompile Include="HomeGroupPickerScenario.xaml.cpp" />
     <ClCompile Include="HomeGroupVideoStream.xaml.cpp" />
-    <ClCompile Include="SearchHomeGroup.xaml.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -30,7 +29,6 @@
     <ClInclude Include="HomeGroupAdvancedSearch.xaml.h" />
     <ClInclude Include="HomeGroupPickerScenario.xaml.h" />
     <ClInclude Include="HomeGroupVideoStream.xaml.h" />
-    <ClInclude Include="SearchHomeGroup.xaml.h" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />
