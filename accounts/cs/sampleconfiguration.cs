@@ -1,7 +1,7 @@
 //*********************************************************
 //
 // Copyright (c) Microsoft. All rights reserved.
-// This code is licensed under the MIT License (MIT).
+// This code is licensed under the Microsoft Public License.
 // THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
 // ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
 // IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
@@ -22,9 +22,7 @@ namespace SDKTemplate
 
         List<Scenario> scenarios = new List<Scenario>
         {
-            new Scenario() { Title="Default account", ClassType=typeof(DefaultAccountScenario)},
             new Scenario() { Title="Single Microsoft account", ClassType=typeof(SingleMicrosoftAccountScenario)},
-            new Scenario() { Title="Single AzureAD account", ClassType=typeof(SingleAzureADScenario)},
             new Scenario() { Title="Single account of any provider", ClassType=typeof(SingleAccountScenario)},
             new Scenario() { Title="Multiple accounts", ClassType=typeof(MultipleAccountsScenario)},
         };

@@ -1,4 +1,4 @@
-/*!
+﻿/*!
   Copyright (c) Microsoft Corporation.  All Rights Reserved. Licensed under the MIT License. See License.txt in the project root for license information.
   Build: 4.0.0.winjs.2015.3.19
   Version: WinJS.4.0

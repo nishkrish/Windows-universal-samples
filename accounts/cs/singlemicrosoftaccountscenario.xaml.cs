@@ -1,7 +1,7 @@
 //*********************************************************
 //
 // Copyright (c) Microsoft. All rights reserved.
-// This code is licensed under the MIT License (MIT).
+// This code is licensed under the Microsoft Public License.
 // THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
 // ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
 // IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
@@ -22,8 +22,13 @@ using System.Threading.Tasks;
 using Windows.UI.Popups;
 using Windows.Security.Authentication.Web.Provider;
 
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
+
 namespace Accounts
 {
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
     public sealed partial class SingleMicrosoftAccountScenario : Page
     {
         private MainPage rootPage;
@@ -145,8 +150,8 @@ namespace Accounts
             e.HeaderText = "Describe what adding an account to your application will do for the user";
 
             // You can add links such as privacy policy, help, general account settings
-            e.Commands.Add(new SettingsCommand("privacypolicy", "Privacy policy", PrivacyPolicyInvoked));
-            e.Commands.Add(new SettingsCommand("otherlink", "Other link", OtherLinkInvoked));
+            e.Commands.Add(new SettingsCommand("privacypolicy", "Privacy Policy", PrivacyPolicyInvoked));
+            e.Commands.Add(new SettingsCommand("otherlink", "Other Link", OtherLinkInvoked));
         }
 
         private async void WebAccountProviderCommandInvoked(WebAccountProviderCommand command)
